@@ -11,6 +11,7 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 /* ubacivanje "mainNavbarItems" iz "navbarItems" */
 import { mainNavbarItems } from './consts/navbarItems';
+import { color } from '@mui/system';
 
 const Navbar = () => {
     /**
@@ -28,6 +29,7 @@ const Navbar = () => {
             boxSizing: 'border-box',
             /* dodavanje "background" boje */
             backgroundColor: '#5fbb40', 
+            /* dodavanje boje teksta */
             color: '#FFFFFF'
           },
         }}
@@ -41,10 +43,11 @@ const Navbar = () => {
             * ovdje cemo se rijesiti niza Stringova i zamijenicemo ih sa nasim "const" fajlom 
             */}
           {mainNavbarItems.map((text, index) => (
-            /* na tutorialu pise "<ListItem button key={text.id} " */
+            /* sada imamo ListItemButton i ListItemIcon, na tutorijalu je starija verzija */
             <ListItem key={text.id} disablePadding>
               <ListItemButton>
-                <ListItemIcon>
+                {/* namjestanje boje za ikonice */}
+                <ListItemIcon sx={{color: '#D9D9D6'}}>
                   {text.icon}
                 </ListItemIcon>
                 {/* renderovanje za "label" */}
