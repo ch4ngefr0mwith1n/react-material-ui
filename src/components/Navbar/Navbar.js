@@ -9,6 +9,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+/* ubacivanje "mainNavbarItems" iz "navbarItems" */
+import { mainNavbarItems } from './consts/navbarItems';
 
 const Navbar = () => {
     /**
@@ -33,30 +35,26 @@ const Navbar = () => {
         <Toolbar />
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding>
+          {/*
+            * ovdje cemo se rijesiti niza Stringova i zamijenicemo ih sa nasim "const" fajlom 
+            */}
+          {mainNavbarItems.map((text, index) => (
+            /* na tutorialu pise "<ListItem button key={text.id} " */
+            <ListItem key={text.id} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  {text.icon}
                 </ListItemIcon>
-                <ListItemText primary={text} />
+                {/* renderovanje za "label" */}
+                <ListItemText primary={text.label} />
               </ListItemButton>
             </ListItem>
           ))}
         </List>
         <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+        {/*
+          * ovdje je pobrisana lista sa 'All mail', 'Trash', 'Spam'
+          * isto je izbrisan i "<Divider/> element" */}
       </Drawer>
   )
 }
