@@ -16,8 +16,7 @@ const Navbar = () => {
     /**
      * falice samo promjenjiva "drawerWidth"
      * nju cemo da kreiramo 
-     * 
-     * */ 
+     */ 
     const drawerWidth = 220;
   return (
     <Drawer
@@ -27,6 +26,9 @@ const Navbar = () => {
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box',
+            /* dodavanje "background" boje */
+            backgroundColor: '#5fbb40', 
+            color: '#FFFFFF'
           },
         }}
         variant="permanent"
